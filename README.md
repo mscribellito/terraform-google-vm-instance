@@ -1,2 +1,3 @@
 # terraform-google-vm-instance
-Provisions a VM instance in Google Cloud
+
+This module allows you to manage a VM instance, `google_compute_instance` resource, within GCE.
