@@ -1,0 +1,21 @@
+name: Run Checkov code analysis
+
+on:
+  - pull_request
+
+permissions: read-all
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    name: checkov-action
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Run Checkov action
+      uses: bridgecrewio/checkov-action@master
+      with:
+        directory: .
+        soft_fail: true

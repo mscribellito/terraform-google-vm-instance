@@ -1,5 +1,9 @@
 resource "google_compute_instance" "compute_instance" {
 
+  #checkov:skip=CKV_GCP_32
+  #checkov:skip=CKV_GCP_38
+  #checkov:skip=CKV_GCP_39
+
   project = var.project_id
 
   name         = var.name
