@@ -13,8 +13,8 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Run Checkov action
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: .
-          soft_fail: true
+    - name: Run Checkov action
+      uses: bridgecrewio/checkov-action@master
+      with:
+        directory: .
+        soft_fail: true
