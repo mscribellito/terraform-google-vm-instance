@@ -1,6 +1,17 @@
 # terraform-google-vm-instance
 
 This module allows you to manage a VM instance, `google_compute_instance` resource, within GCE.
+
+## Examples
+
+Examples of how to use these modules can be found in the [examples](examples) folder.
+
+## Project APIs
+
+The following APIs must be enabled on your project:
+
+- `compute.googleapis.com`
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
