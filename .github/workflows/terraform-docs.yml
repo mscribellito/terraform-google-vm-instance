@@ -3,6 +3,9 @@ name: Generate Terraform documentation
 on:
   - pull_request
 
+permissions:
+  contents: write
+
 jobs:
   terraform-docs:
     runs-on: ubuntu-latest
