@@ -80,16 +80,27 @@ variable "can_ip_forward" {
   default     = false
 }
 
-variable "network_interface" {
-  type = object({
+variable "network_interfaces" {
+  type = list(object({
     subnetwork = string
     network_ip = optional(string, null)
     access_config = optional(object({
       nat_ip       = optional(string, null)
       network_tier = optional(string, "PREMIUM")
     }), null)
-  })
-  description = "Network to attach to the instance."
+  }))
+  description = "Networks to attach to the instance."
+  default     = []
+}
+
+variable "attached_disks" {
+  type = list(object({
+    source      = string
+    mode        = optional(string, "READ_WRITE")
+    device_name = optional(string, null)
+  }))
+  description = "Additional disks to attach to the instance."
+  default     = []
 }
 
 variable "shielded_instance_config" {

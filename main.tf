@@ -44,14 +44,26 @@ resource "google_compute_instance" "default" {
   hostname       = var.hostname
   can_ip_forward = var.can_ip_forward
 
-  network_interface {
-    subnetwork = var.network_interface.subnetwork
-    dynamic "access_config" {
-      for_each = var.network_interface.access_config != null ? [1] : []
-      content {
-        nat_ip       = var.network_interface.access_config.nat_ip
-        network_tier = var.network_interface.access_config.network_tier
+  dynamic "network_interface" {
+    for_each = var.network_interfaces
+    content {
+      subnetwork = network_interface.value.subnetwork
+      dynamic "access_config" {
+        for_each = network_interface.value.access_config != null ? [1] : []
+        content {
+          nat_ip       = network_interface.value.access_config.nat_ip
+          network_tier = network_interface.value.access_config.network_tier
+        }
       }
+    }
+  }
+
+  dynamic "attached_disk" {
+    for_each = var.attached_disks
+    content {
+      source      = attached_disk.value.source
+      mode        = attached_disk.value.mode
+      device_name = attached_disk.value.device_name
     }
   }
 
