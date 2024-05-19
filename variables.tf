@@ -47,10 +47,7 @@ variable "service_account" {
     scopes = optional(list(string), ["cloud-platform"])
   })
   description = "Service account to attach to the instance"
-  default = {
-    email  = null
-    scopes = null
-  }
+  default     = null
 }
 
 variable "network_tags" {
@@ -93,15 +90,21 @@ variable "attached_disks" {
   default     = []
 }
 
+variable "shielded_vm" {
+  type        = bool
+  description = "Enable Shielded VM on this instance"
+  default     = true
+}
+
 variable "shielded_instance_config" {
   type = object({
-    enable_secure_boot          = optional(bool, false)
+    enable_secure_boot          = optional(bool, true)
     enable_vtpm                 = optional(bool, true)
     enable_integrity_monitoring = optional(bool, true)
   })
   description = "Enable Shielded VM on this instance"
   default = {
-    enable_secure_boot          = false
+    enable_secure_boot          = true
     enable_vtpm                 = true
     enable_integrity_monitoring = true
   }
