@@ -1,4 +1,4 @@
-# terraform-google-vm-instance
+# Google Cloud VM Instance Terraform Module
 
 Terraform module which creates a VM instance on Google Cloud.
 
