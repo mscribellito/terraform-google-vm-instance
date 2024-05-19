@@ -111,3 +111,9 @@ variable "startup_script" {
   description = "User startup script to run when instances spin up."
   default     = null
 }
+
+variable "snapshot_schedule" {
+  type        = string
+  description = "The snapshot schedule to attach to the instance boot disk."
+  default     = null
+}

@@ -4,6 +4,16 @@ data "google_compute_zones" "available" {
   region = var.region
 }
 
+resource "google_compute_disk_resource_policy_attachment" "attachment" {
+  count = var.snapshot_schedule != null ? 1 : 0
+
+  project = var.project_id
+
+  disk = var.name
+  name = var.snapshot_schedule
+  zone = google_compute_instance.default.zone
+}
+
 resource "google_compute_instance" "default" {
   project = var.project_id
 
