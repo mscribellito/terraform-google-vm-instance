@@ -68,6 +68,12 @@ variable "network_tags" {
   default     = null
 }
 
+variable "hostname" {
+  type        = string
+  description = "A custom hostname for the instance."
+  default     = null
+}
+
 variable "can_ip_forward" {
   type        = bool
   description = "Whether to allow sending and receiving of packets with non-matching source or destination IPs."

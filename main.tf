@@ -37,6 +37,7 @@ resource "google_compute_instance" "default" {
   }
 
   tags           = var.network_tags
+  hostname       = var.hostname
   can_ip_forward = var.can_ip_forward
 
   network_interface {
