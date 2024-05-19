@@ -28,6 +28,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_allow_stopping_for_update"></a> [allow\_stopping\_for\_update](#input\_allow\_stopping\_for\_update) | If true, allows Terraform to stop the instance to update its properties. | `bool` | `false` | no |
 | <a name="input_boot_disk"></a> [boot\_disk](#input\_boot\_disk) | The boot disk for the instance. | <pre>object({<br>    auto_delete = optional(bool, false)<br>    type        = optional(string, "pd-standard")<br>    size        = optional(number, 10)<br>  })</pre> | <pre>{<br>  "auto_delete": false,<br>  "size": 10,<br>  "type": "pd-standard"<br>}</pre> | no |
 | <a name="input_can_ip_forward"></a> [can\_ip\_forward](#input\_can\_ip\_forward) | Whether to allow sending and receiving of packets with non-matching source or destination IPs. | `bool` | `false` | no |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Enable deletion protection on this instance. | `bool` | `true` | no |
