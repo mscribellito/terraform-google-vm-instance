@@ -102,7 +102,7 @@ variable "shielded_instance_config" {
     enable_vtpm                 = optional(bool, true)
     enable_integrity_monitoring = optional(bool, true)
   })
-  description = "Enable Shielded VM on this instance"
+  description = "Shielded VM configuration"
   default = {
     enable_secure_boot          = true
     enable_vtpm                 = true
