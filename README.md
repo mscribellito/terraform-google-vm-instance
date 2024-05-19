@@ -86,12 +86,17 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_external_ip"></a> [external\_ip](#output\_external\_ip) | The external ip address of the instance, either manually or dynamically assigned. |
-| <a name="output_id"></a> [id](#output\_id) | The identifier of the created resource. |
-| <a name="output_instance_details"></a> [instance\_details](#output\_instance\_details) | All details of the instance. |
-| <a name="output_internal_ip"></a> [internal\_ip](#output\_internal\_ip) | The internal ip address of the instance, either manually or dynamically assigned. |
-| <a name="output_name"></a> [name](#output\_name) | The name of the created resource. |
-| <a name="output_self_link"></a> [self\_link](#output\_self\_link) | The URI of the created resource. |
+| <a name="output_external_ip"></a> [external\_ip](#output\_external\_ip) | The external IP address assigned to the instance, if applicable |
+| <a name="output_id"></a> [id](#output\_id) | The identifier of the created resource |
+| <a name="output_image"></a> [image](#output\_image) | Image self link that was used to create the instance |
+| <a name="output_instance_details"></a> [instance\_details](#output\_instance\_details) | All details of the instance |
+| <a name="output_instance_id"></a> [instance\_id](#output\_instance\_id) | The server-assigned unique identifier of this instance |
+| <a name="output_internal_ip"></a> [internal\_ip](#output\_internal\_ip) | The internal IP address assigned to the instance |
+| <a name="output_labels"></a> [labels](#output\_labels) | The labels of the instance |
+| <a name="output_name"></a> [name](#output\_name) | The name of the created resource |
+| <a name="output_self_link"></a> [self\_link](#output\_self\_link) | The URI of the created resource |
+| <a name="output_status"></a> [status](#output\_status) | The current status of the instance |
+| <a name="output_zone"></a> [zone](#output\_zone) | The zone of the instance |
 <!-- END_TF_DOCS -->
 
 ## Contributing
