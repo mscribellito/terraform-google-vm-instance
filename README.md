@@ -53,6 +53,7 @@ No modules.
 |------|-------------|
 | <a name="output_external_ip"></a> [external\_ip](#output\_external\_ip) | The external ip address of the instance, either manually or dynamically assigned. |
 | <a name="output_id"></a> [id](#output\_id) | The identifier of the created resource. |
+| <a name="output_instance_details"></a> [instance\_details](#output\_instance\_details) | All details of the instance. |
 | <a name="output_internal_ip"></a> [internal\_ip](#output\_internal\_ip) | The internal ip address of the instance, either manually or dynamically assigned. |
 | <a name="output_name"></a> [name](#output\_name) | The name of the created resource. |
 | <a name="output_self_link"></a> [self\_link](#output\_self\_link) | The URI of the created resource. |
