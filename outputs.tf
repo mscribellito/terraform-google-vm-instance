@@ -22,3 +22,9 @@ output "external_ip" {
   description = "The external ip address of the instance, either manually or dynamically assigned."
   value       = try(google_compute_instance.default.network_interface.0.access_config.0.nat_ip, null)
 }
+
+output "instance_details" {
+  description = "All details of the instance."
+  sensitive   = true
+  value       = google_compute_instance.default
+}
