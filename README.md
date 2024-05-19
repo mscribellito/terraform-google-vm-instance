@@ -70,6 +70,7 @@ No modules.
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | A custom hostname for the instance. | `string` | `null` | no |
 | <a name="input_labels"></a> [labels](#input\_labels) | A map of key/value label pairs to assign to the instance. | `map(string)` | `{}` | no |
 | <a name="input_machine_type"></a> [machine\_type](#input\_machine\_type) | The machine type to create. | `string` | `"e2-micro"` | no |
+| <a name="input_metadata"></a> [metadata](#input\_metadata) | Metadata key/value pairs to make available from within the instance. | `map(string)` | `{}` | no |
 | <a name="input_name"></a> [name](#input\_name) | A unique name for the resource, required by GCE. | `string` | n/a | yes |
 | <a name="input_network_interfaces"></a> [network\_interfaces](#input\_network\_interfaces) | Networks to attach to the instance. | <pre>list(object({<br>    subnetwork = string<br>    network_ip = optional(string, null)<br>    access_config = optional(object({<br>      nat_ip       = optional(string, null)<br>      network_tier = optional(string, "PREMIUM")<br>    }), null)<br>  }))</pre> | `[]` | no |
 | <a name="input_network_tags"></a> [network\_tags](#input\_network\_tags) | A list of network tags to attach to the instance. | `list(string)` | `null` | no |
@@ -78,7 +79,6 @@ No modules.
 | <a name="input_service_account"></a> [service\_account](#input\_service\_account) | Service account to attach to the instance. | <pre>object({<br>    email  = optional(string, null)<br>    scopes = optional(list(string), ["cloud-platform"])<br>  })</pre> | <pre>{<br>  "email": null,<br>  "scopes": []<br>}</pre> | no |
 | <a name="input_shielded_instance_config"></a> [shielded\_instance\_config](#input\_shielded\_instance\_config) | Enable Shielded VM on this instance. | <pre>object({<br>    enable_secure_boot          = optional(bool, false)<br>    enable_vtpm                 = optional(bool, true)<br>    enable_integrity_monitoring = optional(bool, true)<br>  })</pre> | <pre>{<br>  "enable_integrity_monitoring": true,<br>  "enable_secure_boot": false,<br>  "enable_vtpm": true<br>}</pre> | no |
 | <a name="input_snapshot_schedule"></a> [snapshot\_schedule](#input\_snapshot\_schedule) | The snapshot schedule to attach to the instance boot disk. | `string` | `null` | no |
-| <a name="input_startup_script"></a> [startup\_script](#input\_startup\_script) | User startup script to run when instances spin up. | `string` | `null` | no |
 | <a name="input_zone"></a> [zone](#input\_zone) | The zone that the machine should be created in. | `string` | `null` | no |
 
 ## Outputs
