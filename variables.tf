@@ -45,7 +45,7 @@ variable "boot_disk" {
 variable "service_account" {
   type = object({
     email  = optional(string, null)
-    scopes = optional(list(string), [])
+    scopes = optional(list(string), ["cloud-platform"])
   })
   description = "Service account to attach to the instance."
   default = {

@@ -1,6 +1,36 @@
 # terraform-google-vm-instance
 
 Terraform module which creates a VM instance on Google Cloud.
+
+## Usage
+
+### Single VM Instance
+
+```hcl
+module "hello_world" {
+  source = "github.com/mscribellito/terraform-google-vm-instance"
+
+  project_id = "your-project-id"
+  name       = "hello-world"
+  region     = "us-east1"
+
+  boot_disk = {
+    image = "projects/ubuntu-os-cloud/global/images/ubuntu-minimal-2204-jammy-v20240515"
+  }
+
+  network_interfaces = [{
+    subnetwork = "projects/your-project-id/regions/us-east1/subnetworks/default"
+    access_config = {
+    }
+  }]
+
+  startup_script = <<-EOT
+    #!/bin/bash
+    echo "Hello, World!"
+  EOT
+}
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -60,3 +90,14 @@ No modules.
 | <a name="output_name"></a> [name](#output\_name) | The name of the created resource. |
 | <a name="output_self_link"></a> [self\_link](#output\_self\_link) | The URI of the created resource. |
 <!-- END_TF_DOCS -->
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
