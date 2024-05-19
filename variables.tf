@@ -1,33 +1,33 @@
 variable "project_id" {
   type        = string
-  description = "The GCP project ID."
+  description = "The GCP project ID"
 }
 
 variable "name" {
   type        = string
-  description = "A unique name for the resource, required by GCE."
+  description = "A unique name for the resource, required by GCE"
 }
 
 variable "labels" {
   type        = map(string)
-  description = "A map of key/value label pairs to assign to the instance."
+  description = "A map of key/value label pairs to assign to the instance"
   default     = {}
 }
 
 variable "region" {
   type        = string
-  description = "Region where the instance should be created."
+  description = "Region where the instance should be created"
 }
 
 variable "zone" {
   type        = string
-  description = "The zone that the machine should be created in."
+  description = "The zone that the machine should be created in"
   default     = null
 }
 
 variable "machine_type" {
   type        = string
-  description = "The machine type to create."
+  description = "The machine type to create"
   default     = "e2-micro"
 }
 
@@ -38,7 +38,7 @@ variable "boot_disk" {
     size        = optional(number, 10)
     auto_delete = optional(bool, false)
   })
-  description = "The boot disk for the instance."
+  description = "The boot disk for the instance"
   default     = null
 }
 
@@ -47,7 +47,7 @@ variable "service_account" {
     email  = optional(string, null)
     scopes = optional(list(string), ["cloud-platform"])
   })
-  description = "Service account to attach to the instance."
+  description = "Service account to attach to the instance"
   default = {
     email  = null
     scopes = []
@@ -56,19 +56,19 @@ variable "service_account" {
 
 variable "network_tags" {
   type        = list(string)
-  description = "A list of network tags to attach to the instance."
+  description = "A list of network tags to attach to the instance"
   default     = null
 }
 
 variable "hostname" {
   type        = string
-  description = "A custom hostname for the instance."
+  description = "A custom hostname for the instance"
   default     = null
 }
 
 variable "can_ip_forward" {
   type        = bool
-  description = "Whether to allow sending and receiving of packets with non-matching source or destination IPs."
+  description = "Whether to allow sending and receiving of packets with non-matching source or destination IPs"
   default     = false
 }
 
@@ -81,7 +81,7 @@ variable "network_interfaces" {
       network_tier = optional(string, "PREMIUM")
     }), null)
   }))
-  description = "Networks to attach to the instance."
+  description = "Networks to attach to the instance"
   default     = []
 }
 
@@ -91,7 +91,7 @@ variable "attached_disks" {
     mode        = optional(string, "READ_WRITE")
     device_name = optional(string, null)
   }))
-  description = "Additional disks to attach to the instance."
+  description = "Additional disks to attach to the instance"
   default     = []
 }
 
@@ -101,7 +101,7 @@ variable "shielded_instance_config" {
     enable_vtpm                 = optional(bool, true)
     enable_integrity_monitoring = optional(bool, true)
   })
-  description = "Enable Shielded VM on this instance."
+  description = "Enable Shielded VM on this instance"
   default = {
     enable_secure_boot          = false
     enable_vtpm                 = true
@@ -111,30 +111,30 @@ variable "shielded_instance_config" {
 
 variable "deletion_protection" {
   type        = bool
-  description = "Enable deletion protection on this instance."
+  description = "Enable deletion protection on this instance"
   default     = true
 }
 
 variable "metadata" {
   type        = map(string)
-  description = "Metadata key/value pairs to make available from within the instance."
+  description = "Metadata key/value pairs to make available from within the instance"
   default     = {}
 }
 
 variable "resource_policies" {
   type        = list(string)
-  description = "A list of self_links of resource policies to attach to the instance."
+  description = "A list of self_links of resource policies to attach to the instance"
   default     = []
 }
 
 variable "allow_stopping_for_update" {
   type        = bool
-  description = "If true, allows Terraform to stop the instance to update its properties."
+  description = "If true, allows Terraform to stop the instance to update its properties"
   default     = false
 }
 
 variable "snapshot_schedule" {
   type        = string
-  description = "The snapshot schedule to attach to the instance boot disk."
+  description = "The snapshot schedule to attach to the instance boot disk"
   default     = null
 }
