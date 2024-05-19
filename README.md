@@ -32,11 +32,10 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_allow_stopping_for_update"></a> [allow\_stopping\_for\_update](#input\_allow\_stopping\_for\_update) | If true, allows Terraform to stop the instance to update its properties. | `bool` | `false` | no |
 | <a name="input_attached_disks"></a> [attached\_disks](#input\_attached\_disks) | Additional disks to attach to the instance. | <pre>list(object({<br>    source      = string<br>    mode        = optional(string, "READ_WRITE")<br>    device_name = optional(string, null)<br>  }))</pre> | `[]` | no |
-| <a name="input_boot_disk"></a> [boot\_disk](#input\_boot\_disk) | The boot disk for the instance. | <pre>object({<br>    auto_delete = optional(bool, false)<br>    type        = optional(string, "pd-standard")<br>    size        = optional(number, 10)<br>  })</pre> | <pre>{<br>  "auto_delete": false,<br>  "size": 10,<br>  "type": "pd-standard"<br>}</pre> | no |
+| <a name="input_boot_disk"></a> [boot\_disk](#input\_boot\_disk) | The boot disk for the instance. | <pre>object({<br>    image       = string<br>    type        = optional(string, "pd-standard")<br>    size        = optional(number, 10)<br>    auto_delete = optional(bool, false)<br>  })</pre> | `null` | no |
 | <a name="input_can_ip_forward"></a> [can\_ip\_forward](#input\_can\_ip\_forward) | Whether to allow sending and receiving of packets with non-matching source or destination IPs. | `bool` | `false` | no |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Enable deletion protection on this instance. | `bool` | `true` | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | A custom hostname for the instance. | `string` | `null` | no |
-| <a name="input_image"></a> [image](#input\_image) | The image from which to initialize this instance. | `string` | n/a | yes |
 | <a name="input_labels"></a> [labels](#input\_labels) | A map of key/value label pairs to assign to the instance. | `map(string)` | `{}` | no |
 | <a name="input_machine_type"></a> [machine\_type](#input\_machine\_type) | The machine type to create. | `string` | `"e2-micro"` | no |
 | <a name="input_name"></a> [name](#input\_name) | A unique name for the resource, required by GCE. | `string` | n/a | yes |
