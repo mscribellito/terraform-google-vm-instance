@@ -8,7 +8,7 @@ Terraform module which creates a VM instance on Google Cloud.
 
 ```hcl
 module "hello_world" {
-  source = "github.com/mscribellito/terraform-google-vm-instance"
+  source = "mscribellito/vm-instance/google"
 
   project_id = "your-project-id"
   name       = "hello-world"
