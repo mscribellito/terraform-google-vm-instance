@@ -8,7 +8,7 @@ data "google_compute_zones" "available" {
   region = var.region
 }
 
-resource "google_compute_disk_resource_policy_attachment" "attachment" {
+resource "google_compute_disk_resource_policy_attachment" "snapshot" {
   count = var.snapshot_schedule != null ? 1 : 0
 
   project = var.project_id
