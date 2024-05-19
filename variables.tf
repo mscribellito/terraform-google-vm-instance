@@ -39,7 +39,6 @@ variable "boot_disk" {
     auto_delete = optional(bool, false)
   })
   description = "The boot disk for the instance"
-  default     = null
 }
 
 variable "service_account" {
@@ -50,7 +49,7 @@ variable "service_account" {
   description = "Service account to attach to the instance"
   default = {
     email  = null
-    scopes = []
+    scopes = null
   }
 }
 
@@ -82,7 +81,6 @@ variable "network_interfaces" {
     }), null)
   }))
   description = "Networks to attach to the instance"
-  default     = []
 }
 
 variable "attached_disks" {
