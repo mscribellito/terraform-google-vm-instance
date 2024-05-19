@@ -27,12 +27,12 @@ resource "google_compute_instance" "default" {
   machine_type = var.machine_type
 
   boot_disk {
-    auto_delete = var.boot_disk.auto_delete
     initialize_params {
+      image = var.boot_disk.image
       type  = var.boot_disk.type
       size  = var.boot_disk.size
-      image = var.image
     }
+    auto_delete = var.boot_disk.auto_delete
   }
 
   service_account {

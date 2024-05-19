@@ -33,21 +33,13 @@ variable "machine_type" {
 
 variable "boot_disk" {
   type = object({
-    auto_delete = optional(bool, false)
+    image       = string
     type        = optional(string, "pd-standard")
     size        = optional(number, 10)
+    auto_delete = optional(bool, false)
   })
   description = "The boot disk for the instance."
-  default = {
-    auto_delete = false
-    type        = "pd-standard"
-    size        = 10
-  }
-}
-
-variable "image" {
-  type        = string
-  description = "The image from which to initialize this instance."
+  default     = null
 }
 
 variable "service_account" {
