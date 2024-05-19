@@ -54,7 +54,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_compute_disk_resource_policy_attachment.attachment](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk_resource_policy_attachment) | resource |
+| [google_compute_disk_resource_policy_attachment.snapshot](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk_resource_policy_attachment) | resource |
 | [google_compute_instance.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) | resource |
 | [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
 
@@ -77,8 +77,9 @@ No modules.
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP project ID | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | Region where the instance should be created | `string` | n/a | yes |
 | <a name="input_resource_policies"></a> [resource\_policies](#input\_resource\_policies) | A list of self\_links of resource policies to attach to the instance | `list(string)` | `[]` | no |
-| <a name="input_service_account"></a> [service\_account](#input\_service\_account) | Service account to attach to the instance | <pre>object({<br>    email  = optional(string, null)<br>    scopes = optional(list(string), ["cloud-platform"])<br>  })</pre> | <pre>{<br>  "email": null,<br>  "scopes": null<br>}</pre> | no |
-| <a name="input_shielded_instance_config"></a> [shielded\_instance\_config](#input\_shielded\_instance\_config) | Enable Shielded VM on this instance | <pre>object({<br>    enable_secure_boot          = optional(bool, false)<br>    enable_vtpm                 = optional(bool, true)<br>    enable_integrity_monitoring = optional(bool, true)<br>  })</pre> | <pre>{<br>  "enable_integrity_monitoring": true,<br>  "enable_secure_boot": false,<br>  "enable_vtpm": true<br>}</pre> | no |
+| <a name="input_service_account"></a> [service\_account](#input\_service\_account) | Service account to attach to the instance | <pre>object({<br>    email  = optional(string, null)<br>    scopes = optional(list(string), ["cloud-platform"])<br>  })</pre> | `null` | no |
+| <a name="input_shielded_instance_config"></a> [shielded\_instance\_config](#input\_shielded\_instance\_config) | Shielded VM configuration | <pre>object({<br>    enable_secure_boot          = optional(bool, true)<br>    enable_vtpm                 = optional(bool, true)<br>    enable_integrity_monitoring = optional(bool, true)<br>  })</pre> | <pre>{<br>  "enable_integrity_monitoring": true,<br>  "enable_secure_boot": true,<br>  "enable_vtpm": true<br>}</pre> | no |
+| <a name="input_shielded_vm"></a> [shielded\_vm](#input\_shielded\_vm) | Enable Shielded VM on this instance | `bool` | `true` | no |
 | <a name="input_snapshot_schedule"></a> [snapshot\_schedule](#input\_snapshot\_schedule) | The snapshot schedule to attach to the instance boot disk | `string` | `null` | no |
 | <a name="input_zone"></a> [zone](#input\_zone) | The zone that the machine should be created in | `string` | `null` | no |
 

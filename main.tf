@@ -8,7 +8,7 @@ data "google_compute_zones" "available" {
   region = var.region
 }
 
-resource "google_compute_disk_resource_policy_attachment" "attachment" {
+resource "google_compute_disk_resource_policy_attachment" "snapshot" {
   count = var.snapshot_schedule != null ? 1 : 0
 
   project = var.project_id
@@ -35,9 +35,12 @@ resource "google_compute_instance" "default" {
     auto_delete = var.boot_disk.auto_delete
   }
 
-  service_account {
-    email  = var.service_account.email
-    scopes = var.service_account.scopes
+  dynamic "service_account" {
+    for_each = var.service_account != null ? [var.service_account] : []
+    content {
+      email  = var.service_account.email
+      scopes = var.service_account.scopes
+    }
   }
 
   tags           = var.network_tags
@@ -67,10 +70,13 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  shielded_instance_config {
-    enable_secure_boot          = var.shielded_instance_config.enable_secure_boot
-    enable_vtpm                 = var.shielded_instance_config.enable_vtpm
-    enable_integrity_monitoring = var.shielded_instance_config.enable_integrity_monitoring
+  dynamic "shielded_instance_config" {
+    for_each = var.shielded_vm ? [1] : []
+    content {
+      enable_secure_boot          = var.shielded_instance_config.enable_secure_boot
+      enable_vtpm                 = var.shielded_instance_config.enable_vtpm
+      enable_integrity_monitoring = var.shielded_instance_config.enable_integrity_monitoring
+    }
   }
 
   deletion_protection = var.deletion_protection
