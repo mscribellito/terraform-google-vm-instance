@@ -123,3 +123,9 @@ variable "snapshot_schedule" {
   description = "The snapshot schedule to attach to the instance boot disk."
   default     = null
 }
+
+variable "allow_stopping_for_update" {
+  type        = bool
+  description = "If true, allows Terraform to stop the instance to update its properties."
+  default     = false
+}

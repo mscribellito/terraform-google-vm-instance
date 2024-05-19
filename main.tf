@@ -63,6 +63,8 @@ resource "google_compute_instance" "default" {
     startup-script = var.startup_script
   }
 
+  allow_stopping_for_update = var.allow_stopping_for_update
+
   lifecycle {
     ignore_changes = [
       metadata["ssh-keys"]
