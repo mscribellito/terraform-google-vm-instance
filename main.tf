@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 1.3.0"
+}
+
 data "google_compute_zones" "available" {
   project = var.project_id
 
