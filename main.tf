@@ -75,9 +75,7 @@ resource "google_compute_instance" "default" {
 
   deletion_protection = var.deletion_protection
 
-  metadata = {
-    startup-script = var.startup_script
-  }
+  metadata = var.metadata
 
   allow_stopping_for_update = var.allow_stopping_for_update
 

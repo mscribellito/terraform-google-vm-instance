@@ -115,20 +115,20 @@ variable "deletion_protection" {
   default     = true
 }
 
-variable "startup_script" {
-  type        = string
-  description = "User startup script to run when instances spin up."
-  default     = null
-}
-
-variable "snapshot_schedule" {
-  type        = string
-  description = "The snapshot schedule to attach to the instance boot disk."
-  default     = null
+variable "metadata" {
+  type        = map(string)
+  description = "Metadata key/value pairs to make available from within the instance."
+  default     = {}
 }
 
 variable "allow_stopping_for_update" {
   type        = bool
   description = "If true, allows Terraform to stop the instance to update its properties."
   default     = false
+}
+
+variable "snapshot_schedule" {
+  type        = string
+  description = "The snapshot schedule to attach to the instance boot disk."
+  default     = null
 }

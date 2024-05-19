@@ -24,10 +24,12 @@ module "hello_world" {
     }
   }]
 
-  startup_script = <<-EOT
-    #!/bin/bash
-    echo "Hello, World!"
-  EOT
+  metadata = {
+    startup-script = <<-EOT
+      #!/bin/bash
+      echo "Hello, World!"
+    EOT
+  }
 }
 ```
 
