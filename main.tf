@@ -77,6 +77,8 @@ resource "google_compute_instance" "default" {
 
   metadata = var.metadata
 
+  resource_policies = var.resource_policies
+
   allow_stopping_for_update = var.allow_stopping_for_update
 
   lifecycle {

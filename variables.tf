@@ -121,6 +121,12 @@ variable "metadata" {
   default     = {}
 }
 
+variable "resource_policies" {
+  type        = list(string)
+  description = "A list of self_links of resource policies to attach to the instance."
+  default     = []
+}
+
 variable "allow_stopping_for_update" {
   type        = bool
   description = "If true, allows Terraform to stop the instance to update its properties."
